@@ -41,6 +41,9 @@ INSTALLED_APPS = [
 
     # third-party apps
     'graphene_django',
+
+    # my apps
+    'my_api'
 ]
 
 MIDDLEWARE = [
@@ -125,3 +128,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+GRAPHENE = {
+    'SCHEMA': 'my_api.schema.schema'
+}

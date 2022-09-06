@@ -1,5 +1,5 @@
 from graphene_django import DjangoObjectType
-from cms.models import MetaData, Page
+from .models import MetaData, Page
 import graphene
 
 
@@ -9,8 +9,11 @@ class MetaDataType(DjangoObjectType):
         fields = ('id', 'title', 'description')
 
 
-class Query(graphene.ObjectType):
+class CMSQuery(graphene.ObjectType):
     all_metadata = graphene.List(MetaDataType)
 
     def resolve_all_metadata(self, info):
         return MetaData.objects.all()
+
+
+# shema = graphene.Schema(query=CMSQuery)

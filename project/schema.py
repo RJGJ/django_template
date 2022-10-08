@@ -1,9 +1,9 @@
 '''
-This is the main shema for the project
+This is the main schema for the project
 '''
 
 from graphene_django import DjangoObjectType
-from cms.schema import CMSQuery
+from cms.schema import CMSQuery, CMSMutation
 import graphene
 
 
@@ -14,8 +14,11 @@ class Query(
     hello = graphene.String(default_value='Hi!')
 
 
-class Mutation(graphene.ObjectType):
+class Mutation(
+    CMSMutation,
+    graphene.ObjectType
+):
     pass
 
 
-schema = graphene.Schema(query=Query)
+schema = graphene.Schema(query=Query, mutation=Mutation)

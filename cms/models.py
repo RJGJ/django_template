@@ -30,3 +30,7 @@ class ArticleCategory(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     title = models.TextField(max_length=255)
     parent = models.ForeignKey('self', blank=True, null=True, default=None, on_delete=models.CASCADE)
+
+
+class Article(models.Model):
+    pass 
